@@ -14,9 +14,11 @@ function setup() {
 
   d3.json("timezones.json").then(function(topology) { 
     console.log(topology);
-
+    
     // Extract all the feature data into a GeoJson object. 
+   // var geojson = topojson.feature(topology, topology.objects.timezone_oceans_geo);
     var geojson = topojson.feature(topology, topology.objects.timezone_oceans_geo);
+    console.log(geojson);
 
     // Create projection (how lat/long will be converted to 2D pixel space). 
     // Do scaling to fit the map on the screen. 
