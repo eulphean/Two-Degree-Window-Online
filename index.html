@@ -6,17 +6,35 @@
     <link rel="stylesheet" type="text/css" href="style.css"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2degreeWindow</title>
-    <style> body {padding: 0; margin: 0; overflow: hidden} </style>
     <script type="text/javascript" src="Library/p5.min.js"></script>
     <script type="text/javascript" src="Library/p5.dom.min.js"></script>
-    <script type="text/javascript" src="src/main.js"></script>
+    <!-- Latest version of D3 -->
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-array.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-    <script src="https://unpkg.com/topojson@3"></script>
+    <!-- D3 geo is a seperate library now -->
+    <script type="text/javascript" src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <!-- Topojson library to unpack a topojson format file into GeoJson for D3.  -->
+    <script type="text/javascript" src="https://unpkg.com/topojson@3"></script>
+    <!-- Project files -->
+    <script type="text/javascript" src="src/main.js"></script>
+    <script type="text/javascript" src="src/Map.js"></script>
   </head>
   <body>  
-    <div id=container></div>
-    <!-- Empty body -->
+    <div class=container>
+      <section id=top>
+        <div class=title>
+          2 DEGREE WINDOW PROJECT
+        </div>
+      </section>
+      <section id=timezones>
+        <div class=map>
+        </div>
+      </section>
+      <section id=about>
+        <div class=walltext>
+            The 2 Degree window project literally moves the needle on climate change. With world leaders denying the melting of the ice caps and the disappearing of most wildlife; it feels like it’s time for everyday people to start making the change even if it is in small degrees. The project aims to bring awareness to climate change by creating a universal clock. Al Gore lost the election in 2000. We can see it’s effects in the 2012 debacle at the Kyoto protocol where countries would not be taxed for their carbon emissions. Nothing has changed since. With this losing election the Western world has turned its back to climate change. On the other hand; we are now living in the age of anthropocene. Plastic flows in our rivers and in our animals in our streets and waters. It’s only by coming together that we can solve a global problem in a magnitude of this size. This universal clock is one that mankind must watch from the corner of its eye in order to keep track of its own impending doom.  The 2 Degree window project literally moves the needle on climate change. With world leaders denying the melting of the ice caps and the disappearing of most wildlife; it feels like it’s time for everyday people to start making the change even if it is in small degrees. The project aims to bring awareness to climate change by creating a universal clock. Al Gore lost the election in 2000. We can see it’s effects in the 2012 debacle at the Kyoto protocol where countries would not be taxed for their carbon emissions. Nothing has changed since. With this losing election the Western world has turned its back to climate change. On the other hand; we are now living in the age of anthropocene. Plastic flows in our rivers and in our animals in our streets and waters. It’s only by coming together that we can solve a global problem in a magnitude of this size. This universal clock is one that mankind must watch from the corner of its eye in order to keep track of its own impending doom. 
+        </div>
+      </section>
+    </div>
   </body>
 </html>

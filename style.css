@@ -6,17 +6,52 @@
     src: local('Menlo Regular'), url('Font/Menlo-Regular.woff') format('woff');
 }
 
-path {
-    fill: white;
-    stroke:black;
-    stroke-width: .5px;
-  }
-  
-path:hover {
-    fill: blue;
+/* Core Component Styles */
+body {
+    overflow: scroll;
+    background-color: blue;
+    margin: 25px; 
+    z-index: 1; 
 }
 
-.svg-container {
+/* Title Styles */
+.title {
+    color:white; 
+    text-align: center;
+    font-size: 35px; 
+    padding-bottom: 20px;
+    font-family: 'Menlo Regular';
+    z-index: 1; 
+}
+
+/* Map Styles */
+.map {
+    overflow: hidden; 
+    position: relative; 
+    margin-top: -18px;
+    background-color: blue; 
+}
+
+/* SVG Styles */
+path {
+    stroke:black;
+    stroke-width: 1px;
+    fill: white;
+}
+  
+path:hover {
+    fill: red;
+}
+
+/* Project info styles */
+.walltext {
+    position: relative; 
+    color:white; 
+    font-family: 'Menlo-Regular';
+    margin-top: -100px;
+}
+
+/* .svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -31,4 +66,4 @@ path:hover {
     position: absolute;
     top: -50;
     left: -50;
-}
+} */
