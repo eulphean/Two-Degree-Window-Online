@@ -3,8 +3,8 @@ class Map {
     constructor(width, height) {
         // Empty svg as the root.
         var svg = d3.select(".map").append("svg")
-                .attr('width', width)
-                .attr('height', height)
+                .attr('preserveAspectRadio', 'none')
+                .attr('viewBox', [0, 0, width, height])
         console.log(svg);
         
         // Load TopoJson file and create the map. 
@@ -22,8 +22,7 @@ class Map {
             // Create Projection (how lat/long will be converted to 2D pixel space). 
             // Do scaling to fit the map on the screen. 
             var geoProjection = d3.geoEquirectangular(); 
-            // geoProjection.fitSize([width-100, height], geojson);
-            geoProjection.fitExtent([[0, 0], [width-50, height-100]], geojson); 
+            geoProjection.fitSize([width, height], geojson);
         
             // Geo shape object that converts the actual geometry into shapes to be drawn. 
             var geoPath = d3.geoPath(geoProjection);
