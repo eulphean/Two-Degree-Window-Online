@@ -14,7 +14,7 @@ class Map {
         this.tooltip.select('.tooltipCaption').text(clockCaptionText);
         
         // Load TopoJson file and create the map. 
-        this.initMap(); 
+        this.initMap();
     }
 
     initMap() {
@@ -46,6 +46,15 @@ class Map {
     }
 
     handleMouseover(d, i) {
+        // Extract the timezone from the data. 
+        var timezone = d.properties.tzid; 
+        var tzData = moment.tz(timezone).format('Z'); // Get utc offset and timezone
+        
+        // Calculate a future moment. 
+        var futureMoment = moment.tz(futureDateTime, momentFormat, timezone);  
+        this.updateClock(futureMoment, timezone); // One shot update. 
+        this.timeInterval = setInterval(this.updateClock.bind(this), 1000, futureMoment, timezone);
+
         // Path's style updates. 
         d3.select(d3.event.target)
             .transition()
@@ -55,7 +64,7 @@ class Map {
         this.tooltip
             .style('visibility', 'visible')
             .select('.tooltipTz')
-            .text(d.properties.tzid)
+            .text(timezone + ' ' + tzData);
     }
 
     handleMousemove(d, i) {
@@ -73,6 +82,28 @@ class Map {
         // Hide the tooltip. 
         this.tooltip    
             .style('visibility', 'hidden');
+
+        // Clear the pending interval of the current timezone. 
+        clearInterval(this.timeInterval); 
+    }
+
+    updateClock(future, timezone) {
+        var currentMoment = moment.tz(timezone); 
+        var diff = future.diff(currentMoment.format());
+        var duration = moment.duration(diff); 
+        var counter = {
+            y : duration.years(),
+            d : parseInt(duration.days()) + duration.months() * 30,
+            h : duration.hours(),
+            m : duration.minutes(),
+            s : duration.seconds()
+        }
+
+        var output = counter.y + ' Years, ' + counter.d + ' Days, ' + counter.h + ' Hours, ' + counter.m + ' Minutes, ' + counter.s + ' Seconds'; 
+        
+        // Update text on tooltip clock. 
+        this.tooltip.select('.tooltipClock')
+            .text(output);
     }
 }
 

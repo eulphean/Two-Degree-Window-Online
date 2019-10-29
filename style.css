@@ -38,21 +38,31 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--shadow);
+    border: solid; 
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px; 
 }
 
 .tooltipTz {
     display: flex; 
     justify-content: center;
+    text-align: center; 
+    font-size: 20px; 
 }
 
 .tooltipClock {
     display: flex;
     justify-content: center; 
+    text-align: center; 
+    font-size: 25px; 
 }
 
 .tooltipCaption {
     display: flex; 
     justify-content: center; 
+    text-align: center;
+    font-size: 20px;
 }
 
 /* SVG Styles */
@@ -87,6 +97,7 @@ path {
     font-size: 23px; 
     color: var(--shadow); 
     justify-content: center;
+    text-align: center; 
 }
 
  .caption {
@@ -94,6 +105,7 @@ path {
     font-size: 20px; 
     color: var(--shadow); 
     justify-content: center; 
+    text-align: center; 
  }
 
 .title {
