@@ -10,10 +10,10 @@ class Clock {
         this.clockEl = clockElement; 
         this.tzone = timezone; 
         this.futureMoment = moment.tz(futureDateTime, momentFormat, this.tzone);  
+        this.updateClock(); 
         this.timer = setInterval(this.updateClock.bind(this), 1000); 
 
         // Set text for all the elements in this clock section. 
-        this.clockEl.innerText = 'Years, Days, Hours, Minutes, Seconds'; 
         timezoneElement.innerText = timezone + ' ' + timezoneData; 
         captionElement.innerText = clockCaptionText; 
     }
