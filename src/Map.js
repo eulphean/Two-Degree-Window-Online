@@ -70,9 +70,19 @@ class Map {
     }
 
     handleMousemove(d, i) {
+        var tooltipWidth = select('.tooltip').width;
+        
+        // Handle where to draw the tooltip. 
+        var left;
+        if (mouseX > 1/2* windowWidth) {
+            left = event.pageX-tooltipWidth; 
+        } else {
+            left = event.pageX+25; 
+        }
+
         this.tooltip
             .style('top', (event.pageY+15) + 'px')
-            .style('left', (event.pageX+25) + 'px');
+            .style('left', left + 'px');
     }
 
     handleMouseout(d, i) {
