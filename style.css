@@ -6,6 +6,13 @@
     src: local('Menlo Regular'), url('Font/Menlo-Regular.woff') format('woff');
 }
 
+:root {
+    --mist: #90AFC5;
+    --stone: #336B87;
+    --shadow: #2A3132;
+    --foliage: #763626;
+}
+
 /* Core Component Styles */
 body {
     overflow: scroll;
@@ -17,7 +24,7 @@ body {
 .map{
     overflow: hidden; 
     position: relative; 
-    background-color: #ECFCF0; 
+    background-color: var(--mist); 
     display: block;
     width: 100%;
     min-width: 100%;
@@ -31,7 +38,7 @@ path {
 }
   
 path:hover {
-    fill: red;
+    fill:var(--foliage);
 }
 
 /* About Styles */
@@ -39,24 +46,40 @@ path:hover {
     display: flex; 
     flex-direction: column;
     padding: 45px;
-    background-color: blue; 
+    background-color: var(--stone); 
+}
+
+.clockContainer {
+    margin: 20px;
+}
+
+.tz {
+    display: flex;
+    font-size: 23px; 
+    color: var(--shadow); 
+    justify-content: center;
 }
 
 .clock {
     width: 100%;
-    height: 50px; 
-    background-color: white;
+    font-size: 30px;
+    color: white;
     text-align: center; 
     margin: auto;
+ }
+
+ .caption {
+    display: flex; 
+    font-size: 20px; 
+    color: var(--shadow); 
+    justify-content: center; 
  }
 
 .title {
     color:white; 
     text-align: center;
     font-size: 35px; 
-    padding-bottom: 20px; 
     font-family: 'Noto Serif JP', serif;
-    background-color: blue;
 }
 
 .walltext {
@@ -68,8 +91,8 @@ path:hover {
 }
 
 .footer {
-    background-color:  #ECFCF0;
-    color: black;
+    background-color: var(--mist);
+    color: var(--shadow);
     min-height: 30px;
     display: flex; 
     justify-content: center; 

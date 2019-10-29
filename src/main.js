@@ -3,6 +3,7 @@ var mainClock;
 
 var momentFormat = "MM/DD/YYYY HH:mm:ss"; 
 var futureDateTime = "01/05/2037 00:00:00";
+var clockCaptionText = "Until we will exceed the IPCC's 2ºC carbon budget, if our emissions stay as they are now";
 
 // ------------------------------- Sketch Setup ------------------------------
 function setup() {

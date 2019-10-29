@@ -1,8 +1,19 @@
 class Clock {
     constructor(timezone) {
+        // Find all the elements in the dom. 
+        var clockElement = document.getElementsByClassName('clock')[0];
+        var timezoneElement = document.getElementsByClassName('tz')[0];
+        var captionElement = document.getElementsByClassName('caption')[0]; 
+
+        this.clockEl = clockElement; 
         this.tzone = timezone; 
         this.futureMoment = moment.tz(futureDateTime, momentFormat, this.tzone);  
         this.timer = setInterval(this.updateClock.bind(this), 1000); 
+
+        // Set text for all the elements in this clock section. 
+        this.clockEl.innerText = 'Years, Days, Hours, Minutes, Seconds'; 
+        timezoneElement.innerText = timezone; 
+        captionElement.innerText = clockCaptionText; 
     }
 
     updateClock() {
@@ -17,7 +28,8 @@ class Clock {
             s : duration.seconds()
         }
 
-        var output = 'Years:' + counter.y + ' Days:' + counter.d + ' Hours:' + counter.h + ' Minutes:' + counter.m + ' Seconds:' + counter.s; 
-        console.log(output);
+        var output = counter.y + ' Years, ' + counter.d + ' Days, ' + counter.h + ' Hours, ' + counter.m + ' Minutes, ' + counter.s + ' Seconds'; 
+        
+        this.clockEl.innerText = output; 
     }
 }
