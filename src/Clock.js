@@ -5,6 +5,8 @@ class Clock {
         var timezoneElement = document.getElementsByClassName('tz')[0];
         var captionElement = document.getElementsByClassName('caption')[0]; 
 
+        var timezoneData = moment.tz(timezone).format('Z z');
+        console.log(timezoneData);
         this.clockEl = clockElement; 
         this.tzone = timezone; 
         this.futureMoment = moment.tz(futureDateTime, momentFormat, this.tzone);  
@@ -12,7 +14,7 @@ class Clock {
 
         // Set text for all the elements in this clock section. 
         this.clockEl.innerText = 'Years, Days, Hours, Minutes, Seconds'; 
-        timezoneElement.innerText = timezone; 
+        timezoneElement.innerText = timezone + ' ' + timezoneData; 
         captionElement.innerText = clockCaptionText; 
     }
 
