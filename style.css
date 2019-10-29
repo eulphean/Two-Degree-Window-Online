@@ -30,16 +30,37 @@ body {
     min-width: 100%;
 }
 
+.tooltip {
+    position: absolute; 
+    visibility: hidden;
+    z-index: 10; 
+    background-color: var(--mist);
+    display: flex;
+    flex-direction: column;
+    color: var(--shadow);
+}
+
+.tooltipTz {
+    display: flex; 
+    justify-content: center;
+}
+
+.tooltipClock {
+    display: flex;
+    justify-content: center; 
+}
+
+.tooltipCaption {
+    display: flex; 
+    justify-content: center; 
+}
+
 /* SVG Styles */
 path {
     stroke:black;
     stroke-width: 1px;
     fill: white;
 }
-  
-/* path:hover {
-    fill:var(--foliage);
-} */
 
 /* About Styles */
 .about {
@@ -53,13 +74,6 @@ path {
     margin: 20px;
 }
 
-.tz {
-    display: flex;
-    font-size: 23px; 
-    color: var(--shadow); 
-    justify-content: center;
-}
-
 .clock {
     width: 100%;
     font-size: 30px;
@@ -67,6 +81,13 @@ path {
     text-align: center; 
     margin: auto;
  }
+
+ .tz {
+    display: flex;
+    font-size: 23px; 
+    color: var(--shadow); 
+    justify-content: center;
+}
 
  .caption {
     display: flex; 

@@ -7,6 +7,11 @@ class Map {
         this.svg = d3.select(".map").append("svg")
                 .attr('preserveAspectRadio', 'none')
                 .attr('viewBox', [0, 0, width, height])
+
+
+        // Store tooltip component to make changes to it. 
+        this.tooltip = d3.select('.tooltip');
+        this.tooltip.select('.tooltipCaption').text(clockCaptionText);
         
         // Load TopoJson file and create the map. 
         this.initMap(); 
@@ -34,22 +39,40 @@ class Map {
                 .data(geojson.features)
                 .enter().append("path")
                 .attr("d", geoPath)
-                .on("mouseover", this.handleMouseover)
-                .on("mouseout", this.handleMouseout);
+                .on('mouseover', this.handleMouseover.bind(this))
+                .on('mousemove', this.handleMousemove.bind(this))
+                .on('mouseout', this.handleMouseout.bind(this));
         });
     }
 
     handleMouseover(d, i) {
-        console.log(d.properties.tzid); // Get a text element 
+        // Path's style updates. 
         d3.select(d3.event.target)
             .transition()
             .style('fill', 'black');
+
+        // Show tooltip. 
+        this.tooltip
+            .style('visibility', 'visible')
+            .select('.tooltipTz')
+            .text(d.properties.tzid)
+    }
+
+    handleMousemove(d, i) {
+        this.tooltip
+            .style('top', (event.pageY+15) + 'px')
+            .style('left', (event.pageX+25) + 'px');
     }
 
     handleMouseout(d, i) {
+        // Path's style updates. 
         d3.select(d3.event.target)
-        .transition()
-        .style('fill', 'white');
+            .transition()
+            .style('fill', 'white');
+
+        // Hide the tooltip. 
+        this.tooltip    
+            .style('visibility', 'hidden');
     }
 }
 
