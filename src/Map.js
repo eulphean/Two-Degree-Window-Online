@@ -56,9 +56,11 @@ class Map {
         this.timeInterval = setInterval(this.updateClock.bind(this), 1000, futureMoment, timezone);
 
         // Path's style updates. 
+        var randomColor = this.getRandomColor(); 
+        
         d3.select(d3.event.target)
             .transition()
-            .style('fill', 'black');
+            .style('fill', color(randomColor.r, randomColor.g, randomColor.b));
 
         // Show tooltip. 
         this.tooltip
@@ -77,6 +79,7 @@ class Map {
         // Path's style updates. 
         d3.select(d3.event.target)
             .transition()
+            .transition().duration(10000)
             .style('fill', 'white');
 
         // Hide the tooltip. 
@@ -104,6 +107,15 @@ class Map {
         // Update text on tooltip clock. 
         this.tooltip.select('.tooltipClock')
             .text(output);
+    }
+
+    getRandomColor() {
+        var r = random(255); 
+        var g = random(255);
+        var b = random(255); 
+        return {
+            'r': r, 'g': g, 'b': b
+        }; 
     }
 }
 
