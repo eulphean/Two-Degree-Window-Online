@@ -37,9 +37,9 @@ path {
     fill: white;
 }
   
-path:hover {
+/* path:hover {
     fill:var(--foliage);
-}
+} */
 
 /* About Styles */
 .about {
