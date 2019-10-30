@@ -21,48 +21,6 @@ body {
     padding: 0px; 
 }
 
-/* Map Styles */
-.map{
-    overflow: hidden; 
-    position: relative; 
-    background-color: var(--mist); 
-    display: block;
-    width: 100%;
-    min-width: 100%;
-}
-
-
-/* SVG Styles */
-path {
-    stroke:black;
-    stroke-width: 1px;
-    fill:var(--mist);
-}
-
-/* About Styles */
-.about {
-    display: flex; 
-    flex-direction: column;
-    padding: 45px;
-    background-color: var(--stone); 
-}
-
-.aboutClock {
-    display: flex;
-    justify-content: center; 
-}
-
-.clockContainer {
-    margin: 20px;
-    border: solid; 
-    border-width: 2px;
-    border-radius: 5px;
-    padding: 5px; 
-    display: inline-block;
-    background-color: #C5CFDA;
-    font-family: 'Noto Serif JP', serif;
-}
-
 /* Clock styles in the map section.  */
 .tooltip {
     position: absolute; 
@@ -103,7 +61,50 @@ path {
     color: var(--shadow); 
 }
 
+
+/* Map Styles */
+.map{
+    overflow: hidden; 
+    position: relative; 
+    background-color: var(--mist); 
+    display: block;
+    width: 100%;
+    min-width: 100%;
+}
+
+/* SVG Styles */
+path {
+    stroke:black;
+    stroke-width: 1px;
+    fill:var(--mist);
+}
+
+/* About Styles */
+.about {
+    display: flex; 
+    flex-direction: column;
+    /* top, right, bottom, left */
+    padding: 25px 30px 25px 30px; 
+    background-color: var(--stone); 
+}
+
 /* Clock styles in the about section. */
+.aboutClock {
+    display: flex;
+    justify-content: center; 
+}
+
+.clockContainer {
+    margin: 20px;
+    border: solid; 
+    border-width: 2px;
+    border-radius: 20px;
+    padding: 5px; 
+    display: inline-block;
+    background-color: #C5CFDA;
+    font-family: 'Noto Serif JP', serif;
+}
+
 .clock {
     width: 100%;
     font-size: 30px;
@@ -131,7 +132,7 @@ path {
 .title {
     color:white; 
     text-align: center;
-    font-size: 35px; 
+    font-size: 45px; 
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -151,4 +152,73 @@ path {
     justify-content: center; 
     align-items: center; 
     font-family: 'Noto Serif JP', serif;
+    font-size: 25px; 
+}
+
+/* Media Queries For Different Sized Devices */
+/* IPAD */
+@media only screen and (max-width: 768px){
+    /* // Update tooltip (come up with another way to show it)
+    // Update about section */
+    .about {
+
+    }
+
+    .title {
+        font-size: 40px; 
+    }
+
+    .clockContainer {
+        margin: 15px; 
+    }
+
+    .clock {
+        font-size: 25px; 
+    }
+    
+    .tz {
+        font-size: 20px;
+    }
+
+
+    .walltext {
+        font-size: 20px;
+    }
+}
+
+/* iPhone 414px and less */
+@media only screen and (max-width: 768px){
+    /* // Update tooltip (come up with another way to show it)
+    // Update about section */
+    .about {
+        padding: 20px 17px 20px 17px; 
+    }
+
+    .title {
+        font-size: 28px; 
+    }
+
+    .clockContainer {
+        padding: 5px;
+    }
+
+    .clock {
+        font-size: 20px; 
+    }
+    
+    .tz {
+        font-size: 15px;
+    }
+
+    .caption {
+        font-size: 15px;
+    }
+
+    .walltext {
+        font-size: 15px;
+    }
+
+    .footer {
+        font-size: 15px; 
+    }
 }
