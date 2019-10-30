@@ -42,6 +42,8 @@ class Map {
                 .on('mouseover', this.handleMouseover.bind(this))
                 .on('mousemove', this.handleMousemove.bind(this))
                 .on('mouseout', this.handleMouseout.bind(this));
+            
+            
         });
     }
 
@@ -62,11 +64,15 @@ class Map {
             .transition()
             .style('fill', color(randomColor.r, randomColor.g, randomColor.b));
 
-        // Show tooltip. 
-        this.tooltip
-            .style('visibility', 'visible')
-            .select('.tooltipTz')
-            .text(timezone + ' ' + tzData);
+        if (this.isMobile()) {
+            console.log('Drop a modal');
+        }  else {
+            // Show tooltip. 
+            this.tooltip
+                .style('visibility', 'visible')
+                .select('.tooltipTz')
+                .text(timezone + ' ' + tzData);
+        }
     }
 
     handleMousemove(d, i) {
@@ -88,7 +94,6 @@ class Map {
     handleMouseout(d, i) {
         // Path's style updates. 
         d3.select(d3.event.target)
-            .transition()
             .transition().duration(10000)
             .style('fill', 'white');
 
@@ -126,6 +131,10 @@ class Map {
         return {
             'r': r, 'g': g, 'b': b
         }; 
+    }
+
+    isMobile() {
+        return (typeof window.orientation !== "undefined");
     }
 }
 
