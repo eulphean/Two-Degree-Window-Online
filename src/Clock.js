@@ -3,7 +3,6 @@ class Clock {
         // Find all the elements in the dom. 
         var clockElement = document.getElementsByClassName('clock')[0];
         var timezoneElement = document.getElementsByClassName('tz')[0];
-        var captionElement = document.getElementsByClassName('caption')[0]; 
 
         var timezoneData = moment.tz(timezone).format('Z z');
         console.log(timezoneData);
@@ -15,7 +14,6 @@ class Clock {
 
         // Set text for all the elements in this clock section. 
         timezoneElement.innerText = timezone + ' ' + timezoneData; 
-        captionElement.innerText = clockCaptionText; 
     }
 
     updateClock() {

@@ -8,13 +8,41 @@ class Map {
                 .attr('preserveAspectRadio', 'none')
                 .attr('viewBox', [0, 0, width, height])
 
+        if (this.isMobile()) {
+            // Initiate modal. 
+            this.initModal();
 
-        // Store tooltip component to make changes to it. 
-        this.tooltip = d3.select('.tooltip');
-        this.tooltip.select('.tooltipCaption').text(clockCaptionText);
+            // Remove tooltip. 
+            var tooltip = document.getElementsByClassName('tooltip')[0];
+            tooltip.remove();
+        } else {
+            // Select tooltip component to modify it in the future.  
+            this.tooltip = d3.select('.tooltip');
+        }
         
         // Load TopoJson file and create the map. 
         this.initMap();
+    }
+
+    initModal() {
+        // New modal. 
+        this.modal = new tingle.modal({
+            footer: true,
+            stickyFooter: true,
+            cssClass: ['custom-class-1']
+        });
+
+        /// Append dom elements that I want to show. 
+        var tz = document.getElementsByClassName('tooltipTz')[0].outerHTML; 
+        var clock = document.getElementsByClassName('tooltipClock')[0].outerHTML; 
+        var caption = document.getElementsByClassName('tooltipCaption')[0].outerHTML; 
+        this.modal.setContent(tz+clock+caption);
+
+        // // add a button
+        this.modal.addFooterBtn('OK', 'tingle-btn tingle-btn--primary', ()=> {
+            // here goes some logic
+            this.modal.close();
+        });
     }
 
     initMap() {
@@ -42,8 +70,6 @@ class Map {
                 .on('mouseover', this.handleMouseover.bind(this))
                 .on('mousemove', this.handleMousemove.bind(this))
                 .on('mouseout', this.handleMouseout.bind(this));
-            
-            
         });
     }
 
@@ -60,12 +86,19 @@ class Map {
         // Path's style updates. 
         var randomColor = this.getRandomColor(); 
         
-        d3.select(d3.event.target)
-            .transition()
-            .style('fill', color(randomColor.r, randomColor.g, randomColor.b));
+        if (!this.isMobile()) {
+            d3.select(d3.event.target)
+                .transition()
+                .style('fill', color(randomColor.r, randomColor.g, randomColor.b));
+        } else {
+            d3.select(d3.event.target)
+                .transition()
+                .style('fill', 'white');
+        }
 
         if (this.isMobile()) {
-            console.log('Drop a modal');
+            d3.selectAll('.tooltipTz').text(timezone + ' ' + tzData);
+            this.modal.open(); // Open model. 
         }  else {
             // Show tooltip. 
             this.tooltip
@@ -76,32 +109,37 @@ class Map {
     }
 
     handleMousemove(d, i) {
-        var tooltipWidth = select('.tooltip').width;
-        
-        // Handle where to draw the tooltip. 
-        var left;
-        if (mouseX > 1/2* windowWidth) {
-            left = event.pageX-tooltipWidth; 
-        } else {
-            left = event.pageX+25; 
-        }
+        if (!this.isMobile()) {
+            var tooltipWidth = select('.tooltip').width;
+            // Handle where to draw the tooltip. 
+            var left;
+            if (mouseX > 1/2* windowWidth) {
+                left = event.pageX-tooltipWidth; 
+            } else {
+                left = event.pageX+25; 
+            }
 
-        this.tooltip
-            .style('top', (event.pageY+15) + 'px')
-            .style('left', left + 'px');
+            this.tooltip
+                .style('top', (event.pageY+15) + 'px')
+                .style('left', left + 'px');
+        }
     }
 
     handleMouseout(d, i) {
-        // Path's style updates. 
-        d3.select(d3.event.target)
-            .transition().duration(10000)
-            .style('fill', 'white');
+        if (!this.isMobile()) {
+            // Path's style updates. 
+            d3.select(d3.event.target)
+                .transition().duration(10000)
+                .style('fill', 'white');
 
-        // Hide the tooltip. 
-        this.tooltip    
-            .style('visibility', 'hidden');
+            // Hide the tooltip. 
+            this.tooltip    
+                .style('visibility', 'hidden');
 
-        // Clear the pending interval of the current timezone. 
+            // Clear the pending interval of the current timezone. 
+        }
+        
+        // We clear interval nonetheless.
         clearInterval(this.timeInterval); 
     }
 
@@ -120,7 +158,7 @@ class Map {
         var output = counter.y + ' Years, ' + counter.d + ' Days, ' + counter.h + ' Hours, ' + counter.m + ' Minutes, ' + counter.s + ' Seconds'; 
         
         // Update text on tooltip clock. 
-        this.tooltip.select('.tooltipClock')
+        d3.selectAll('.tooltipClock')
             .text(output);
     }
 
@@ -138,4 +176,3 @@ class Map {
     }
 }
 
-  
