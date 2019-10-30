@@ -32,7 +32,7 @@ body {
     color: var(--shadow);
     border: solid; 
     border-width: 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px; 
     font-family: 'Noto Serif JP', serif;
 }
@@ -60,7 +60,6 @@ body {
     font-size: 20px;
     color: var(--shadow); 
 }
-
 
 /* Map Styles */
 .map{
@@ -99,7 +98,7 @@ path {
     border: solid; 
     border-width: 2px;
     border-radius: 20px;
-    padding: 10px; 
+    padding: 5px; 
     display: inline-block;
     background-color: #C5CFDA;
     font-family: 'Noto Serif JP', serif;
@@ -162,13 +161,23 @@ path {
 @media only screen and (max-width: 768px){
     /* // Update tooltip (come up with another way to show it) */
     /* Map section */
+    .tooltipTz {
+        font-size: 20px;
+    }
+    
+    .tooltipClock {
+        font-size: 25px;
+    }
+    
+    .tooltipCaption {
+
+    }
 
     /* About section */
     .title {
         font-size: 40px; 
     }
     .clockContainer {
-        padding: 5px;
         margin: 15px; 
     }
     .clock {
@@ -186,6 +195,17 @@ path {
 @media only screen and (max-width: 414px){
     /* // Update tooltip (come up with another way to show it) */
     /* Map section */
+    .tooltipTz {
+        font-size: 15px;
+    }
+    
+    .tooltipClock {
+        font-size: 20px;
+    }
+    
+    .tooltipCaption {
+        font-size: 15px;
+    }
 
     /* About section */
     .about {
