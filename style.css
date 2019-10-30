@@ -84,7 +84,7 @@ path {
     display: flex; 
     flex-direction: column;
     /* top, right, bottom, left */
-    padding: 25px 30px 25px 30px; 
+    padding: 25px;
     background-color: var(--stone); 
 }
 
@@ -99,7 +99,7 @@ path {
     border: solid; 
     border-width: 2px;
     border-radius: 20px;
-    padding: 5px; 
+    padding: 10px; 
     display: inline-block;
     background-color: #C5CFDA;
     font-family: 'Noto Serif JP', serif;
@@ -132,7 +132,7 @@ path {
 .title {
     color:white; 
     text-align: center;
-    font-size: 45px; 
+    font-size: 40px; 
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -147,77 +147,68 @@ path {
 .footer {
     background-color: var(--mist);
     color: var(--shadow);
+    display: flex;
+    justify-content: center;
+    width: 100%;
     min-height: 30px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    text-align: center; 
     font-family: 'Noto Serif JP', serif;
-    font-size: 25px; 
+    font-size: 15px; 
 }
 
 /* Media Queries For Different Sized Devices */
+
 /* IPAD */
 @media only screen and (max-width: 768px){
-    /* // Update tooltip (come up with another way to show it)
-    // Update about section */
-    .about {
+    /* // Update tooltip (come up with another way to show it) */
+    /* Map section */
 
-    }
-
+    /* About section */
     .title {
         font-size: 40px; 
     }
-
     .clockContainer {
+        padding: 5px;
         margin: 15px; 
     }
-
     .clock {
         font-size: 25px; 
     }
-    
     .tz {
         font-size: 20px;
     }
-
-
     .walltext {
         font-size: 20px;
     }
 }
 
 /* iPhone 414px and less */
-@media only screen and (max-width: 768px){
-    /* // Update tooltip (come up with another way to show it)
-    // Update about section */
+@media only screen and (max-width: 414px){
+    /* // Update tooltip (come up with another way to show it) */
+    /* Map section */
+
+    /* About section */
     .about {
         padding: 20px 17px 20px 17px; 
     }
-
     .title {
         font-size: 28px; 
     }
-
     .clockContainer {
         padding: 5px;
     }
-
     .clock {
         font-size: 20px; 
     }
-    
     .tz {
         font-size: 15px;
     }
-
     .caption {
         font-size: 15px;
     }
-
     .walltext {
         font-size: 15px;
     }
-
     .footer {
         font-size: 15px; 
     }
