@@ -170,6 +170,23 @@ path {
     opacity: 0.9;
 }
 
+.vimeo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.h_iframe {
+
+}
+
+p {
+    margin: 0px;
+    padding: 0px; 
+}
+
 /* Media Queries For Different Sized Devices */
 
 /* IPAD */
