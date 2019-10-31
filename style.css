@@ -7,11 +7,20 @@
 }
 
 :root {
+    /* Old colors */
     --light: #C5CFDA;
     --mist: #90AFC5;
     --stone: #336B87;
     --shadow: #2A3132;
     --foliage: #221d1c;
+    /* New colors */
+    --processblue: #3e81ba;
+    --rubinared: #c8557e;
+    --blue72: #4047a4;
+    --greenu: #51a78e;
+    --purpleu: #b05caf;
+    --medpurple: #604584;
+    --warmred: #fc6762;
 }
 
 /* Core Component Styles */
@@ -26,7 +35,8 @@ body {
     position: absolute; 
     visibility: hidden;
     z-index: 10; 
-    background-color: var(--light);
+    /* background-color: var(--light); */
+    background-image: linear-gradient(141deg, #CCFFFF 0%, #1fc8db 60%, #2cb5e8 90%);
     display: flex;
     flex-direction: column;
     color: var(--shadow);
@@ -35,6 +45,7 @@ body {
     border-radius: 20px;
     padding: 5px; 
     font-family: 'Noto Serif JP', serif;
+    opacity: 0.9;
 }
 
 .tooltipTz {
@@ -65,17 +76,19 @@ body {
 .map{
     overflow: hidden; 
     position: relative; 
-    background-color: var(--mist); 
+    background-color: var(--processblue);
     display: block;
     width: 100%;
     min-width: 100%;
+    opacity: 0.8;
 }
 
 /* SVG Styles */
 path {
     stroke:black;
-    stroke-width: 1px;
-    fill:var(--mist);
+    stroke-width: 2px;
+    fill:var(--processblue);
+    opacity: 0.9;
 }
 
 /* About Styles */
@@ -84,7 +97,7 @@ path {
     flex-direction: column;
     /* top, right, bottom, left */
     padding: 25px;
-    background-color: var(--stone); 
+    background-color: var(--warmred);
 }
 
 /* Clock styles in the about section. */
@@ -100,7 +113,8 @@ path {
     border-radius: 20px;
     padding: 5px; 
     display: inline-block;
-    background-color: #C5CFDA;
+    /* background-color: #C5CFDA; */
+    background-image: linear-gradient(141deg, #CCFFFF 0%, #1fc8db 60%, #2cb5e8 90%);
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -144,7 +158,7 @@ path {
 }
 
 .footer {
-    background-color: var(--mist);
+    background-color: var(--processblue);
     color: var(--shadow);
     display: flex;
     justify-content: center;
@@ -153,6 +167,7 @@ path {
     text-align: center; 
     font-family: 'Noto Serif JP', serif;
     font-size: 15px; 
+    opacity: 0.9;
 }
 
 /* Media Queries For Different Sized Devices */

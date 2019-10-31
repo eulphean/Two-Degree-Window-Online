@@ -83,13 +83,13 @@ class Map {
         this.updateClock(futureMoment, timezone); // One shot update. 
         this.timeInterval = setInterval(this.updateClock.bind(this), 1000, futureMoment, timezone);
 
-        // Path's style updates. 
-        var randomColor = this.getRandomColor(); 
+        // // Path's style updates. 
+        // var randomColor = this.getRandomColor(); 
         
         if (!this.isMobile()) {
             d3.select(d3.event.target)
                 .transition()
-                .style('fill', color(randomColor.r, randomColor.g, randomColor.b));
+                .style('fill', '#f8e059');
         } else {
             d3.select(d3.event.target)
                 .transition()
@@ -129,7 +129,7 @@ class Map {
         if (!this.isMobile()) {
             // Path's style updates. 
             d3.select(d3.event.target)
-                .transition().duration(10000)
+                .transition().duration(3000)
                 .style('fill', 'white');
 
             // Hide the tooltip. 
