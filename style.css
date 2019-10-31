@@ -21,6 +21,11 @@
     --purpleu: #b05caf;
     --medpurple: #604584;
     --warmred: #fc6762;
+    --yellow: #f8e059;
+}
+
+a {
+    color: var(--yellow)
 }
 
 /* Core Component Styles */
@@ -168,23 +173,37 @@ path {
     font-family: 'Noto Serif JP', serif;
     font-size: 15px; 
     opacity: 0.9;
+    color: white; 
 }
 
 .vimeo {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    margin-top: 20px; 
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
-.h_iframe {
-
+.iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
 }
 
-p {
-    margin: 0px;
-    padding: 0px; 
+.iframe-container-4x3 {
+    padding-top: 75%;
+}
+
+iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.vimeo p {
+    margin: 5px; 
+    text-align: center;
+    font-size: 18px;
 }
 
 /* Media Queries For Different Sized Devices */
