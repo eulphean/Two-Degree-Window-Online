@@ -176,6 +176,10 @@ path {
 @media only screen and (max-width: 768px){
     /* // Update tooltip (come up with another way to show it) */
     /* Map section */
+    path {
+        stroke-width: 1.5px; 
+    }
+
     .tooltipTz {
         font-size: 20px;
     }
@@ -210,6 +214,10 @@ path {
 @media only screen and (max-width: 414px){
     /* // Update tooltip (come up with another way to show it) */
     /* Map section */
+    path {
+        stroke-width: 0.8px; 
+    }
+
     .tooltipTz {
         font-size: 15px;
     }
