@@ -206,6 +206,29 @@ iframe {
     font-size: 18px;
 }
 
+.credits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+.logos {
+    display: flex;
+    flex-direction: row; 
+    width: 100%; 
+    justify-content: center;
+}
+
+img {
+    width: 30%; 
+    margin-right: 2.5em; 
+    margin-top: 1em;
+}
+
 /* Media Queries For Different Sized Devices */
 
 /* IPAD */
