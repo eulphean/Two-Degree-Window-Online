@@ -214,12 +214,14 @@ iframe {
     color: black;
     font-size: 20px;
     margin-top: 1em;
+    width: 100%; 
 }
 
 .logos {
     display: flex;
     flex-direction: row; 
     width: 100%; 
+    height: 50%; 
     justify-content: center;
 }
 
