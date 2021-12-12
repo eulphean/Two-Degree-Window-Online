@@ -1,0 +1,2 @@
+# Two Degree Window
+In 2019, Amay Kataria was invited to create an online version of [Two Degree Window](https://github.com/eulphean/Two-Degree-Window-Art-A-Hack) to be a part of [Fixity Equals Death](https://space-p11.com/f-d#:~:text=Fixity%20Equals%20Death%20is%20a,and%20other%20new%20media%20art.&text=Fixity%20Equals%20Death%20is%20part,terrain%20enveloped%20by%20digital%20colonialism.). The project was showcased at the Wrong Biennale and also at a physical gallery called Space P11 in Chicago. This project is an interactive website that allows the user
